@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="”robots”" content="”noindex,nofollow”">
+    <meta name="apple-mobile-web-app-title" content="EMS 勤怠">
+    <title>勤怠</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="img/icon.png">
+    <link rel="shortcut icon" href="img/icon.png">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#1C212A">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/index-D5vQaUKU.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BR_Az2Xz.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title"><span class="header__title-name"></span><span class="header__title-cat">ホーム</span></h1>
+    </header>
+    <main>
+        <article class="page__attendance js-on">
+            <div class="time">
+                <div class="time__text"><span class="time__name"></span><span class="time__day"></span></div>
+                <time class="time__hhmm"><span class="time__hhmm--hh"></span><span class="time__hhmm--colon">:</span><span class="time__hhmm--mm"></span><span class="time__hhmm--ss"></span></time>
+            </div>
+            <section class="attendance box">
+                <h2>勤怠入力</h2>
+                <div class="attendance__buttons">
+                    <button type="button" class="attendance__button attendance__button--begin">出勤</button>
+                    <button type="button" class="attendance__button attendance__button--finish" disabled="disabled">退勤</button>
+                </div>
+                <div class="attendance__result">
+                    <label class="attendance__resultCaseWrap" for="attendance__result--case">
+                        <span>事件対応数</span>
+                        <button type="button" class="attendance__result--caseMinus">🔽</button>
+                        <input type="number" id="attendance__result--case" class="attendance__result--case" step="1" min="0" value="0">
+                        <button type="button" class="attendance__result--casePlus">🔼</button>
+                    </label>
+                    <label class="attendance__resultStartWrap">
+                        <span>出勤時間</span>
+                        <input type="datetime-local" class="attendance__result--start" value="">
+                    </label>
+                    <label class="attendance__resultFinishWrap">
+                        <span>退勤時間</span>
+                        <input type="datetime-local" class="attendance__result--finish" value="">
+                    </label>
+                </div>
+                <div class="attendance__sendWrap"></div>
+            </section>
+            <section class="information box">
+                <h2 class="information__title">お知らせ</h2>
+                <dl class="information__dl"></dl>
+            </section>
+        </article>
+        <article class="page__record">
+        </article>
+        <article class="page__instructions">
+            <section class="box">
+                <h2>前提条件</h2>
+                <ul>
+                    <li>違うデバイス間で勤怠を共有できません（スマホで勤怠する場合はずっとスマホを用いるようにしてください）</li>
+                    <li>インターネットの環境が悪い場合は正しく勤怠情報が送信されない可能性があるので、電波環境の良い状態で勤怠を送信してください</li>
+                    <li>デバイス内の情報をエクスポートできるようにする予定はありません<br>勤怠情報はサーバーに保存されるので、デバイス側のデータを気にする必要はありません</li>
+                </ul>
+            </section>
+            <section class="box">
+                <h2>初使用時の流れ</h2>
+                <ol>
+                    <li>【初回】パスワードと名前（基本変更しない）を入力してログイン<br>
+                    ※パスワードは勤怠管理者に聞いてください</li>
+                </ol>
+            </section>
+            <section class="box">
+                <h2>基本的な流れ</h2>
+                <ol>
+                    <li>出勤時に「出勤」ボタンを押す<br>※この時出勤時間を変更したい場合は、「出勤」ボタン下部のフィールドをクリックして日時の変更をしてください</li>
+                    <li>事件対応を行った場合は🔼🔽ボタン、もしくは直接入力で件数を記録してください<br>出勤〜退勤までに行った事件対応数を入力してください（日単位ではないです）</li>
+                    <li>退勤したい時に「退勤」ボタンを押す<br>※この時退勤時間を変更したい場合は、「退勤」ボタン下部のフィールドをクリックして日時の変更をしてください</li>
+                    <li>事件対応数、出勤、退勤の数と時間が問題ない場合は、「勤怠を提出する」ボタンを押して提出してください<br>※基本的には提出した勤怠は修正できません。どうしても修正したい場合は勤怠管理者に問い合わせてください</li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1U8fshjZXQ-7FENZDrCMuiiAqqdqozfDFpM8UMOc0MGQ/edit?gid=0#gid=0" target="_blank">勤怠確認用のspreadsheets</a>に自身の勤怠が追加されているか、時間が正しいかを定期的にご確認ください</li>
+                </ol>
+            </section>
+            <section class="box">
+                <h2>1日に複数回出勤する場合</h2>
+                <ul>
+                    <li>1日に何回も勤怠を提出して問題ないので、同日でも出勤するたびに「基本的な流れ」の手順を実施してください</li>
+                </ul>
+            </section>
+            <section class="box">
+                <h2>出勤をやり直し/勤怠を提出しないでリセットしたい</h2>
+                <ul>
+                    <li>「勤怠を提出する」の右側のゴミ箱アイコンを押せば可能ですが、推奨はしていません。</li>
+                </ul>
+            </section>
+            <section class="box">
+                <h2>その他</h2>
+                <ul>
+                    <li>「勤怠記録」は最新から2ヶ月分より前のデータは手元からは消えます（送信したデータは消えません）</li>
+                </ul>
+            </section>
+        </article>
+        <article class="page__setting">
+            <section class="setting box">
+                <h2>名前の設定</h2>
+                <label class="input js-on">
+                    <span>名前</span>
+                    <input type="text" class="setting__name" name="setting__name">
+                </label>
+                <ul class="setting__list">
+                    <li>名前は勤怠のデータ集計で同じ名前を参照するため、基本的には変更はしないでください。</li>
+                    <li>変更した場合は勤怠管理者へと連絡してください。<br>※連絡しなかった場合、勤怠が通常に処理されません。</li>
+                </ul>
+            </section>
+            <section class="reset box">
+                <h2>データの削除</h2>
+                <dl class="reset__dl">
+                    <dt><button type="button" class="button button--1st reset__recordData">勤怠記録を削除する</button></dt>
+                    <dd>既に送信した勤怠記録は削除されません</dd>
+                    <dd>3ヶ月より前のデータは自動で消えるので、能動的に消したい場合以外は消さないで大丈夫です。</dd>
+                </dl>
+            </section>
+            <section class="theme box">
+                <h2>テーマカラーの変更</h2>
+                <p>かみんぐすーん</p>
+            </section>
+        </article>
+    </main>
+    <footer class="footer">
+        <menu class="menu">
+            <ul class="menu__list">
+                <li class="menu__item menu__item--home js-on"><a>ホーム</a></li>
+                <li class="menu__item menu__item--record"><a>勤怠記録</a></li>
+                <li class="menu__item menu__item--instructions"><a>説明</a></li>
+                <li class="menu__item menu__item--setting"><a>設定</a></li>
+            </ul>
+        </menu>
+    </footer>
+    <!-- <dialog open>aaa</dialog> -->
+    <aside class="starting">
+        <form class="startingWrap">
+            <p class="starting__disc">このツールは関係者以外は使用しないでください。</p>
+            <label class="input">
+                <span>name</span>
+                <input type="text" class="starting__input starting__input--text" required>
+            </label>
+            <label class="input">
+                <span>pass</span>
+                <input type="password" class="starting__input starting__input--pass" required>
+            </label>
+            <footer class="starting__footer">
+                <div class="starting__errorWrap">
+                    <p class="starting__error">※ passが違うヨ</p>
+                    <p class="starting__error2">※ nameを入力してネ</p>
+                </div>
+                <button type="submit" class="starting__button">送信</button>
+            </footer>
+        </form>
+    </aside>
+    <aside class="landing"></aside>
+    <!-- <dialog class="dialog">
+        <div class="dialog__text">勤怠を送信します。よろしいですか？</div>
+    </dialog> -->
+</body>
+</html>
